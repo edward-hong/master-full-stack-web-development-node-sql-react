@@ -1,12 +1,9 @@
-import generation from './generation'
+import generationEngine from './engine'
 
-const { expiration, newDragon } = generation()
+const { start, stop } = generationEngine()
 
-const gooby = newDragon()
-
-console.log('gooby', gooby)
+start()
 
 setTimeout(() => {
-  const mimar = newDragon()
-  console.log('mimar', mimar)
-}, 15000)
+  stop()
+}, 20000)
