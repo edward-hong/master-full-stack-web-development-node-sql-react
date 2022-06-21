@@ -1,5 +1,5 @@
-import generation from './generation'
-import type { Traits } from './dragon'
+import generation from './'
+import type { Traits } from '../dragon'
 
 const generationEngine = () => {
   let timer: NodeJS.Timeout

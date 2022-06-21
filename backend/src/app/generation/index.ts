@@ -1,5 +1,5 @@
-import dragon from './dragon'
-import { REFREST_RATE, SECONDS } from './config'
+import dragon from '../dragon'
+import { REFREST_RATE, SECONDS } from '../config'
 
 const refreshRate = REFREST_RATE * SECONDS
 
