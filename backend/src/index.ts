@@ -1,7 +1,9 @@
 import dragon from './dragon'
 
 const fooey = dragon(new Date(), 'fooey')
-const baloo = dragon(new Date(), 'baloo')
+const baloo = dragon(new Date(), 'baloo', [
+  { traitType: 'backgroundColor', traitValue: 'green' },
+])
 const mimar = dragon()
 
 setTimeout(() => {
