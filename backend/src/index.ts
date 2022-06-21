@@ -1,16 +1,12 @@
-import dragon from './dragon'
+import generation from './generation'
 
-const fooey = dragon(new Date(), 'fooey')
-const baloo = dragon(new Date(), 'baloo', [
-  { traitType: 'backgroundColor', traitValue: 'green' },
-])
-const mimar = dragon()
+const { expiration, newDragon } = generation()
+
+const gooby = newDragon()
+
+console.log('gooby', gooby)
 
 setTimeout(() => {
-  const gooby = dragon()
-  console.log('gooby', gooby)
-}, 3000)
-
-console.log('fooey', fooey)
-console.log('baloo', baloo)
-console.log('mimar', mimar)
+  const mimar = newDragon()
+  console.log('mimar', mimar)
+}, 15000)
