@@ -1,11 +1,17 @@
 import generation from './generation'
+import type { Traits } from './dragon'
 
 const generationEngine = () => {
   let timer: NodeJS.Timeout
   let isStarted = false
+  let generateNewDragon: () =>
+    | { birthdate: Date; nickname: string; traits: Traits }
+    | undefined
 
   const buildNewGeneration = () => {
-    const { expiration } = generation()
+    const { expiration, newDragon } = generation()
+
+    generateNewDragon = newDragon
 
     console.log('new generation', { expiration })
 
@@ -26,7 +32,11 @@ const generationEngine = () => {
     }
   }
 
-  return { start, stop }
+  const newDragon = () => {
+    return generateNewDragon()
+  }
+
+  return { start, stop, newDragon }
 }
 
 export default generationEngine

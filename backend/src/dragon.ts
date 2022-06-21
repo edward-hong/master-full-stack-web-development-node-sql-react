@@ -14,7 +14,7 @@ interface Trait {
   traitValue: TraitValue
 }
 
-interface Traits extends Array<Trait> {}
+export interface Traits extends Array<Trait> {}
 
 const getRandomFromArr = (arr: any[]) => {
   return arr[Math.floor(Math.random() * arr.length)]
