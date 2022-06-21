@@ -1,6 +1,6 @@
 import express from 'express'
 
-import generationEngine from './engine'
+import generationEngine from './generation/engine'
 
 const app = express()
 

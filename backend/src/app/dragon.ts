@@ -1,4 +1,4 @@
-import TRAITS from './traits.json'
+import TRAITS from '../data/traits.json'
 
 type TraitType = 'backgroundColor' | 'pattern' | 'build' | 'size'
 
