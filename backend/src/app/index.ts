@@ -1,15 +1,18 @@
 import express from 'express'
 
 import generationEngine from './generation/engine'
+import dragonRouter from './api/dragon'
+import generationRouter from './api/generation'
 
 const app = express()
 
-const { start, stop, newDragon } = generationEngine()
+const engine = generationEngine()
 
-start()
+app.locals.engine = engine
 
-app.get('/dragon/new', (req, res) => {
-  res.json({ dragon: newDragon() })
-})
+engine.start()
+
+app.use('/dragon', dragonRouter)
+app.use('/generation', generationRouter)
 
 export default app

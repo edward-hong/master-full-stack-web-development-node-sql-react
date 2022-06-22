@@ -1,4 +1,4 @@
-import generation from './'
+import generate from './'
 import type { Traits } from '../dragon'
 
 const generationEngine = () => {
@@ -7,11 +7,13 @@ const generationEngine = () => {
   let generateNewDragon: () =>
     | { birthdate: Date; nickname: string; traits: Traits }
     | undefined
+  let currentExpiration: any
 
   const buildNewGeneration = () => {
-    const { expiration, newDragon } = generation()
+    const { expiration, newDragon } = generate()
 
     generateNewDragon = newDragon
+    currentExpiration = expiration
 
     console.log('new generation', { expiration })
 
@@ -36,7 +38,11 @@ const generationEngine = () => {
     return generateNewDragon()
   }
 
-  return { start, stop, newDragon }
+  const generation = () => {
+    return { expiration: currentExpiration }
+  }
+
+  return { start, stop, newDragon, generation }
 }
 
 export default generationEngine
