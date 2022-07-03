@@ -13,7 +13,8 @@
     "dev:server": "nodemon dist/bin/server.js",
     "dev": "run-p dev:*",
     "lint": "eslint --ignore-path .eslintignore",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "configure": "./src/bin/configure_db.sh"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
