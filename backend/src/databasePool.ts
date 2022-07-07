@@ -1,11 +1,14 @@
+import * as dotenv from 'dotenv'
 import { Pool } from 'pg'
-import { config } from 'dotenv'
 
-config()
+dotenv.config({ path: __dirname + '/.env' })
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
+  user: 'node_user',
+  host: 'localhost',
+  database: 'dragonstackdb',
+  password: process.env.DATABASE_PASSWORD,
+  port: 5432,
 })
 
 export default pool
